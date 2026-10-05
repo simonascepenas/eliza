@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ELIZA</title>
+  <meta name="description" content="A rules-based chatbot in the spirit of ELIZA, written in Python and running in your browser.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+</head>
+<body>
+  <main class="screen">
+    <header>
+      <h1>ELIZA</h1>
+      <p class="tagline">Rules-based AI &middot; Developed by Simonas Cepenas, inspired by Joseph Weizenbaum's ELIZA</p>
+    </header>
+
+    <div class="layout">
+      <figure class="portrait">
+        <canvas id="face" width="48" height="54" role="img" aria-label="Pixel art portrait of a woman with long dark hair"></canvas>
+        <figcaption class="portrait-bar">
+          <span id="status">waking up&hellip;</span>
+          <button id="voice" class="voice-toggle" type="button" aria-pressed="false" title="Read ELIZA's replies aloud" hidden>Voice<span class="voice-state" aria-hidden="true">off</span></button>
+        </figcaption>
+      </figure>
+
+      <section class="chat" aria-label="Conversation">
+        <div id="log" class="log" aria-live="polite"></div>
+        <form id="chat-form" class="input-row" autocomplete="off">
+          <span class="prompt" aria-hidden="true">&gt;</span>
+          <input id="message" type="text" placeholder="Tell me what's on your mind" aria-label="Your message" maxlength="300" disabled>
+          <button id="send" type="submit" disabled>Send</button>
+        </form>
+      </section>
+    </div>
+
+    <section class="about" aria-labelledby="about-title">
+      <h2 id="about-title">DOCTOR, the Rogerian psychotherapist</h2>
+      <p>ELIZA was written by Joseph Weizenbaum at MIT between 1964 and 1966. Its most famous script, DOCTOR, simulated a Rogerian psychotherapist by reflecting the user's statements back as non-directional, open-ended questions.</p>
+      <p>This page runs that original DOCTOR script, rule for rule, as published in Weizenbaum's 1966 paper.</p>
+    </section>
+
+    <footer>Written in Python with <a href="https://pyscript.net">PyScript</a>.</footer>
+  </main>
+
+  <script src="face.js"></script>
+  <script type="mpy" src="main.py" config='{"files": {"./eliza.py": ""}}'></script>
+</body>
+</html>
